@@ -1,0 +1,14 @@
+<p>signup works!</p>
+<div class="container">
+    <div class="col-7 mx-auto shadow p-4">
+        <h1 class="text-success text-center">Student Profile</h1>
+        <input type="text"  placeholder="fullname" class="form-control my-2 shadow-none" [(ngModel)]="fullname">
+        <input type="text"  placeholder="email" class="form-control my-2 shadow-none" [(ngModel)]="email" >
+         
+        <input type="text"  placeholder="password" class="form-control my-2 shadow-none" [(ngModel)]="password">
+        <input type="text"  placeholder="phonenumber" class="form-control my-2 shadow-none" [(ngModel)]="phonenumber">
+   
+        <button class="btn btn-outline-success" (click)="signup()">Sign up</button>
+    </div>
+</div>
+

@@ -1,0 +1,19 @@
+<p>{{this.userserve.firstname}}</p>
+<p>{{this.userserve.age}}</p>
+<input type="text" [(ngModel)]="firstname" placeholder="firstname">
+<input type="text" [(ngModel)]="lastname" placeholder="lastname">
+<input type="text" [(ngModel)]="email" placeholder="email">
+<input type="text" [(ngModel)]="phonenumber" placeholder="phonenumber">
+<button (click)="create()">Create Contact</button>
+<button (click)="deleteLastContact()">Delete Last Contact</button>
+<div id="details">
+    <!-- Existing user display code -->
+    <ng-container *ngFor="let user of users; let i = index">
+        <p>
+            {{ i + 1 }}. {{ user.FirstName }} {{ user.LastName }}, Email: {{ user.Email }},
+            Phone: {{ user.PhoneNumber }}
+            <button class="btn btn-primary" (click)="editcontact(i)">Edit</button>
+            <button class="btn btn-secondary" (click)="viewcontact(i)">View</button>
+        </p>
+    </ng-container>
+</div>

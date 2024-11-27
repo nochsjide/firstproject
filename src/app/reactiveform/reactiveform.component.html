@@ -1,0 +1,46 @@
+<p>reactiveform works!</p>
+<div class="container">
+    <div class="col-6 mx-auto shadow p-3">
+        <h1 class="text-success text-center">Reactive Form</h1>
+    </div>
+    <form action="" [formGroup]="formone">
+        <input type="text" name="" id="" class="form-control my-2" placeholder="firstname" formControlName="fname"
+            name="firstname" [class.is-valid]="formone.get('fname')?.valid"
+            [class.is-invalid]="formone.get('fname')?.invalid">
+        <div *ngIf="formone.get('fname')?.invalid && formone.get('fname')?.dirty ">
+            <span class="text-danger" *ngIf="formone.get('fname')?.getError('minlength')">the minimum length is 4</span>
+        </div>
+        <input type="text" name="" id="" class="form-control my-2" placeholder="phonenumber" formControlName="pnumber"
+            name="phonenumber" [class.is-valid]="formone.get('pnumber')?.valid"
+            [class.is-invalid]="formone.get('pnumber')?.invalid">
+        <div *ngIf="formone.get('pnumber')?.invalid && formone.get('pnumber')?.dirty ">
+            <span class="text-danger" *ngIf="formone.get('pnumber')?.getError('maxlength')">the maximum length is
+                11</span>
+            <span class="text-danger" *ngIf="formone.get('pnumber')?.getError('required')">the phonenumber is
+                    required</span>
+        </div>
+        <input type="text" name="" id="" class="form-control my-2" placeholder="email" formControlName="email"
+            name="email" [class.is-valid]="formone.get('email')?.valid"
+            [class.is-invalid]="formone.get('email')?.invalid">
+        <div *ngIf="formone.get('email')?.invalid && formone.get('email')?.dirty ">
+         
+            <span class="text-danger" *ngIf="formone.get('email')?.getError('required')">the email is
+                    required</span>
+        </div> 
+        <input type="text" name="" id="" class="form-control my-2" placeholder="password" formControlName="pword"
+            name="password" [class.is-valid]="formone.get('pword')?.valid"
+            [class.is-invalid]="formone.get('pword')?.invalid">
+        <div *ngIf="formone.get('pword')?.invalid && formone.get('pword')?.dirty ">
+         
+            <span class="text-danger" *ngIf="formone.get('pword')?.getError('required')">the password is
+                    required</span>
+        </div> 
+        <input type="checkbox" name="" id="" required class="form-check-input" formControlName="cbox" name="checkbox" >I agree to the terms and conditions
+        <div *ngIf="formone.get('cbox')?.invalid  ">
+         
+            <span class="text-danger" *ngIf="formone.get('cbox')?.getError('required')">Please check the
+                    box</span>
+        </div> 
+        <button class="btn btn-outline-success w-100" (click)="reactive()" [disabled]="formone.invalid">Reactive Form</button>
+    </form>
+</div>

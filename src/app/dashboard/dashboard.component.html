@@ -1,0 +1,19 @@
+<div class="navbar">
+  <img
+    [src]="currentStudent.picture || 'default-avatar.png'"
+    alt="Profile Picture"
+    class="rounded-circle"
+    width="40"
+    height="40"
+  />
+  <a [routerLink]="['dashboard/update-password']">Update Password</a>
+  <a [routerLink]="['dashboard/upload-picture']">Upload Picture</a>
+  <a [routerLink]="['dashboard/course-registration']">Course Registration</a>
+  <a [routerLink]="['dashboard/view-classmates']">View Classmates</a>
+  <button class="btn btn-danger" (click)="logout()">Logout</button>
+</div>
+<div class="container">
+  <h1>Welcome, {{ currentStudent.fullname }}</h1>
+  <p>Email: {{ currentStudent.email }}</p>
+  <p>Phone: {{ currentStudent.phonenumber }}</p>
+</div>

@@ -1,0 +1,11 @@
+<p>contactbehavsubjchild works!</p>
+<div>
+    <span *ngFor="let user of users " (click)="show(user)" style="cursor: pointer;">
+        FirstName: {{user.FirstName}} Email:{{user. Email}} LastName: {{user.LastName}} PhoneNumber:
+        {{user.PhoneNumber}}<br />
+    </span>
+</div>
+<div class="mt-4 border">
+    <p>FirstName: {{data.FirstName}} Email:{{data.Email}} LastName: {{data.LastName}} PhoneNumber: {{data.PhoneNumber}}
+    </p>
+</div>

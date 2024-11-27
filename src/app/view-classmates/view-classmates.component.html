@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>Classmates</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Class</th>
+          <th>Department</th>
+          <th>Registration Number</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of classmates">
+          <td>{{ student.fullname }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.phonenumber }}</td>
+          <td>{{ student.class }}</td>
+          <td>{{ student.department || '-' }}</td>
+          <td>{{ student.registrationNumber }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <button class="btn btn-secondary mt-3" (click)="goToDashboard()">Back to Dashboard</button>
+  </div>
+  

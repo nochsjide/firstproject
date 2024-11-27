@@ -1,0 +1,54 @@
+<p>templatevalidation works!</p>
+<div class="container">
+    <div class="col-6 mx-auto shadow p-4">
+        <h3 class="text-primary text-center">Template-driven Form Validation</h3>
+        <form #form="ngForm">
+            <input type="text" class="form-control my-2" placeholder="Enter First Name" [(ngModel)]="firstname"
+                name="fname" #fname="ngModel" minlength="5" [class.is-valid]="fname.dirty && fname.valid"
+                [class.is-invalid]="fname.invalid && fname.dirty" required />
+            <div *ngIf="fname.invalid && fname.dirty">
+                <span class="text-danger" *ngIf="fname.hasError('minlength')">
+                    The minimum character length is five
+                </span>
+                <span class="text-danger" *ngIf="fname.hasError('required')">
+                    The firstname is required
+                </span>
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Enter LastName" [(ngModel)]="lastname"
+                name="lname" #lname="ngModel" minlength="5" maxlength="10" [class.is-valid]="lname.dirty && lname.valid"
+                [class.is-invalid]="lname.invalid && lname.dirty" />
+            <div *ngIf="lname.invalid && lname.dirty">
+                <span class="text-danger" *ngIf="lname.hasError('minlength')">
+                    The minimum character length is five
+                </span>
+                <span class="text-danger" *ngIf="lname.hasError('maxlength')">
+                    The maximum character length is ten
+                </span>
+            </div>
+
+            <input type="text" class="form-control my-2" placeholder="Enter Phone Number" [(ngModel)]="phonenumber"
+                name="pnumber" #pnumber="ngModel" [class.is-valid]="pnumber.dirty && pnumber.valid"
+                [class.is-invalid]="pnumber.invalid && pnumber.dirty" required />
+            <div *ngIf="pnumber.invalid && pnumber.dirty">
+                <span class="text-danger" *ngIf="pnumber.hasError('required')">
+                    The Phone Number is required
+                </span>
+            </div>
+
+            <input type="number" class="form-control my-2" placeholder="Enter Age" [(ngModel)]="age"
+                name="hage" #hage="ngModel" [class.is-valid]="hage.dirty && hage.valid"
+                [class.is-invalid]="hage.invalid && hage.dirty" min="18" max="60" /> 
+            <div *ngIf="hage.invalid && hage.dirty">
+                <span class="text-danger" *ngIf="hage.hasError('min')">
+                    The minimum age is 18
+                </span>
+                <span class="text-danger" *ngIf="hage.hasError('max')">
+                    The maximum age is 60
+                </span>
+            </div>
+
+            <button class="btn btn-outline-primary w-100" [disabled]="!form.valid">Submit Form</button>
+        </form>
+    </div>
+</div>

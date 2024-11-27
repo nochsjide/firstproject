@@ -1,0 +1,55 @@
+<p>Signup works!</p>
+<div class="container">
+  <div class="col-7 mx-auto shadow p-4">
+    <h1 class="text-success text-center">Student Signup Page</h1>
+    <input
+      type="text"
+      placeholder="Full Name"
+      class="form-control my-2 shadow-none"
+      [(ngModel)]="fullname"
+    />
+    <input
+      type="text"
+      placeholder="Email"
+      class="form-control my-2 shadow-none"
+      [(ngModel)]="email"
+    />
+    <p class="text-danger">{{ errmessage }}</p>
+    <input
+      type="password"
+      placeholder="Password"
+      class="form-control my-2 shadow-none"
+      [(ngModel)]="password"
+    />
+    <input
+      type="text"
+      placeholder="Phone Number"
+      class="form-control my-2 shadow-none"
+      [(ngModel)]="phonenumber"
+    />
+
+    <!-- Class Selection -->
+    <select
+      class="form-select my-2"
+      [(ngModel)]="selectedClass"
+      (change)="onClassChange()"
+    >
+      <option value="" disabled selected>Select Class</option>
+      <option *ngFor="let cls of classes" [value]="cls">{{ cls }}</option>
+    </select>
+
+    <!-- Department Selection -->
+    <select
+      *ngIf="showDepartment"
+      class="form-select my-2"
+      [(ngModel)]="selectedDepartment"
+    >
+      <option value="" disabled selected>Select Department</option>
+      <option *ngFor="let dept of departments" [value]="dept">
+        {{ dept }}
+      </option>
+    </select>
+
+    <button class="btn btn-outline-success" (click)="signup()">Sign Up</button>
+  </div>
+</div>

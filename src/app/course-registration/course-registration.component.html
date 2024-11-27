@@ -1,0 +1,32 @@
+<div class="container">
+    <h1>Course Registration</h1>
+    <p class="text-success" *ngIf="message">{{ message }}</p>
+  
+    <div class="row">
+      <div class="col-md-6">
+        <h3>Available Courses</h3>
+        <ul>
+          <li *ngFor="let course of availableCourses">
+            {{ course }}
+            <button
+              class="btn btn-primary btn-sm ms-2"
+              (click)="addCourse(course)"
+              [disabled]="registeredCourses.includes(course)"
+            >
+              Add
+            </button>
+          </li>
+        </ul>
+      </div>
+  
+      <div class="col-md-6">
+        <h3>Registered Courses</h3>
+        <ul>
+          <li *ngFor="let course of registeredCourses">{{ course }}</li>
+        </ul>
+      </div>
+    </div>
+  
+    <button class="btn btn-secondary mt-3" (click)="goToDashboard()">Back to Dashboard</button>
+  </div>
+  
